@@ -5,17 +5,18 @@ import MealList from "../Components/MealList";
 
 const SearchPage = () => {
     const [searchInput, setSearchInput] = useState('')
-    const[searchMeals, setSearchMeals] = useState([])
+    const [searchMeals, setSearchMeals] = useState([])
 
     const handleInputChange = (event) => {
         setSearchInput(event.target.value);
     };
 
     const handleSubmit = () => {
-       axios(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
-           .then(({data}) => {
-               setSearchMeals(data.meals)
-           })
+        axios(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
+            .then(({data}) => {
+                setSearchMeals(data.meals)
+
+            })
     };
 
     return (
